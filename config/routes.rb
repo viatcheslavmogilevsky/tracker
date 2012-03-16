@@ -1,24 +1,20 @@
 Tracker::Application.routes.draw do
 
 
-  get "users/new"
 
-  get "users/create"
 
-  get "users/show"
 
-  get "users/index"
 
-  get "users/edit"
 
-  get "users/update"
-
-  get "users/destroy"
 
   resources :users do
-    resources :tasks do
+    member do
+      get 'no_completed_tasks'
+      get 'after_deadline'
+    end
+    resources :tasks, :except => :index do
       member do
-        put 'complete'
+        put 'set_complete'
       end
     end
   end

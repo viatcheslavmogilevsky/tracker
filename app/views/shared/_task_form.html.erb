@@ -1,0 +1,17 @@
+<%= form_for [@user,@task] do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label "Do before:" %>
+    <%= f.date_select :do_before, :start_year => Date.today.year %>
+  </div>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  <div>
+    <%= f.submit "submit task" %>
+  </div>
+<% end %>

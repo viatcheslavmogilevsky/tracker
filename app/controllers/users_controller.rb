@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :find_user, :only => [:show, :edit, :destroy]
+  before_filter :find_user, :except => [:new, :create, :index]
 
   def new
     @user = User.new
@@ -15,11 +15,21 @@ class UsersController < ApplicationController
   end
 
   def show
-    @task = @user.tasks
+    @tasks = @user.tasks
   end
 
   def index
     @users = User.all
+  end
+
+  def no_completed_tasks
+    @tasks = @user.no_completed_tasks
+    render 'show'
+  end
+
+  def after_deadline
+    @tasks = @user.after_deadline
+    render 'show'
   end
 
   def edit

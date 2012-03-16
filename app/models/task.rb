@@ -4,7 +4,4 @@ class Task < ActiveRecord::Base
   validates :title, :presence => true
   validates :do_before, :presence => true
 
-  def complete
-    self.complete = true
-  end
 end

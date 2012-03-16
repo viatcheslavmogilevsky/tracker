@@ -1,8 +1,17 @@
 <h1> <%= @user.name %> </h1>
 <span> <%= @user.email %> </span>
 
+
+<ul>
+  <li> <%= link_to 'all tasks', user_path(@user) %> </li>
+  <li> <%= link_to 'no completed tasks', no_completed_tasks_user_path(@user) %> </li>
+  <li> <%= link_to 'after deadline', after_deadline_user_path(@user) %> </li>
+  <li> <%= link_to 'back to users', users_path %> </li>
+  <li> <%= link_to 'edit user', edit_user_path(@user) %> </li>
+</ul>
+
 <table>
   <%= render @tasks %>
 </table>
 
-<%= link_to "create task", new_user_task_path(@user,task) %>
+<%= link_to "create task", new_user_task_path(@user) %>

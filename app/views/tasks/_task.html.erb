@@ -2,7 +2,7 @@
   <td>
     <span> <%= task.title %> | completed: <%= task.complete %>  </span> <br>
     <span> <%= task.content %> </span> <br>
-    <%= link_to "edit task", edit_user_task_path(@user,task) %> | <%= link_to 'delete task', user_task(@user,task), :method => delete %> |
-    <%= link_to 'complete task', complete_user_task_path(@user,task) %>
+    <%= link_to "edit task", edit_user_task_path(@user,task) %> | <%= link_to 'delete task', user_task_path(@user,task), :method => :delete %> |
+    <%= link_to 'complete task', set_complete_user_task_path(@user,task), :method => :put %>
   </td>
 </tr>
