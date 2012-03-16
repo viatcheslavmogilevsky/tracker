@@ -1,6 +1,27 @@
 Tracker::Application.routes.draw do
 
-  resources :users
+
+  get "users/new"
+
+  get "users/create"
+
+  get "users/show"
+
+  get "users/index"
+
+  get "users/edit"
+
+  get "users/update"
+
+  get "users/destroy"
+
+  resources :users do
+    resources :tasks do
+      member do
+        put 'complete'
+      end
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
