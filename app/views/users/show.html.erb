@@ -6,8 +6,11 @@
   <li> <%= link_to 'all tasks', user_path(@user) %> </li>
   <li> <%= link_to 'no completed tasks', no_completed_tasks_user_path(@user) %> </li>
   <li> <%= link_to 'after deadline', after_deadline_user_path(@user) %> </li>
+</ul>
+<ul>
   <li> <%= link_to 'back to users', users_path %> </li>
   <li> <%= link_to 'edit user', edit_user_path(@user) %> </li>
+  <li> <%= link_to 'delete user', @user, :method => :delete %> </li>
 </ul>
 
 <table>

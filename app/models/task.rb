@@ -4,4 +4,6 @@ class Task < ActiveRecord::Base
   validates :title, :presence => true
   validates :do_before, :presence => true
 
+
+
 end

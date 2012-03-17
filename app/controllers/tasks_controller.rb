@@ -6,7 +6,7 @@ before_filter :find_task, :only => [:update, :edit, :show, :destroy, :set_comple
   end
 
   def create
-    @task = @user.tasks.new(params[:task].merge(:complete => false))
+    @task = @user.tasks.new(params[:task])
     if @task.save
       redirect_to user_path(@user)
     else
@@ -23,11 +23,9 @@ before_filter :find_task, :only => [:update, :edit, :show, :destroy, :set_comple
   end
 
   def edit
-
   end
 
   def show
-
   end
 
 
