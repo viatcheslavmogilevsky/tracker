@@ -28,5 +28,11 @@ describe User do
       User.new(@attr).should be_valid
     end
 
+    it 'should reject email addresses indetical up to case' do
+      User.create!(@attr)
+      duplicate_addr = @attr[:email].upcase
+      User.new(@attr.merge(:email => duplicate_addr)).should_not be_valid
+    end
+
   end
 end
